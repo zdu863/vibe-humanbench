@@ -1,0 +1,242 @@
+.verbal-memory {
+  min-height: calc(100vh - 80px);
+}
+
+.verbal-memory .instructions-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 120px);
+  padding: 20px;
+}
+
+.verbal-memory .instructions-content {
+  max-width: 440px;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+.verbal-memory .test-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 32px;
+  background: var(--bg-elevated);
+}
+
+.verbal-memory .test-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verbal-memory .test-header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.verbal-memory .daily-badge {
+  background: var(--accent-muted);
+  color: var(--accent-primary);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.verbal-memory .instructions-body {
+  padding: 24px;
+}
+
+.verbal-memory .instructions-body h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: var(--text-secondary);
+}
+
+.verbal-memory .instructions-body ul {
+  margin-bottom: 24px;
+  padding-left: 20px;
+}
+
+.verbal-memory .instructions-body li {
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.verbal-memory .instructions-body .btn {
+  width: 100%;
+}
+
+/* Game Screen */
+.verbal-memory .game-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 120px);
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* Game Status */
+.game-status {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+.status-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.status-value {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.lives-display {
+  display: flex;
+  gap: 6px;
+}
+
+.life {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--error);
+  transition: all 0.3s ease;
+}
+
+.life.lost {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+}
+
+/* Word Display */
+.word-display {
+  margin-bottom: 48px;
+  padding: 32px 64px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  transition: all 0.15s ease;
+}
+
+.word-display.correct {
+  border-color: var(--success);
+  background: var(--success-muted);
+}
+
+.word-display.wrong {
+  border-color: var(--error);
+  background: var(--error-muted);
+}
+
+.current-word {
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Answer Buttons */
+.answer-buttons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.btn-answer {
+  padding: 14px 48px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--border-radius);
+  transition: all 0.2s ease;
+}
+
+.btn-seen {
+  background: var(--accent-primary);
+  color: white;
+}
+
+.btn-seen:hover {
+  background: var(--accent-secondary);
+}
+
+.btn-new {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-new:hover {
+  border-color: var(--text-secondary);
+}
+
+.hint {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Finished Screen */
+.verbal-memory .finished-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 120px);
+  gap: 16px;
+}
+
+/* Already Played */
+.verbal-memory .already-played {
+  max-width: 380px;
+  margin: 100px auto;
+  text-align: center;
+}
+
+.verbal-memory .already-played h2 {
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+}
+
+.verbal-memory .already-played p {
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.verbal-memory .already-played .btn {
+  margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+  .current-word {
+    font-size: 1.75rem;
+  }
+  
+  .word-display {
+    padding: 24px 40px;
+  }
+  
+  .btn-answer {
+    padding: 12px 32px;
+  }
+}

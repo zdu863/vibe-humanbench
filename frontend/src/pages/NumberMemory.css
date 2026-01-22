@@ -1,0 +1,300 @@
+.number-memory {
+  min-height: calc(100vh - 80px);
+}
+
+.number-memory .instructions-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 120px);
+  padding: 20px;
+}
+
+.number-memory .instructions-content {
+  max-width: 440px;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+.number-memory .test-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 32px;
+  background: var(--bg-elevated);
+}
+
+.number-memory .test-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.number-memory .test-header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.number-memory .daily-badge {
+  background: var(--accent-muted);
+  color: var(--accent-primary);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.number-memory .instructions-body {
+  padding: 24px;
+}
+
+.number-memory .instructions-body h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: var(--text-secondary);
+}
+
+.number-memory .instructions-body ul {
+  margin-bottom: 24px;
+  padding-left: 20px;
+}
+
+.number-memory .instructions-body li {
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.number-memory .instructions-body .btn {
+  width: 100%;
+}
+
+/* Game Screens */
+.number-memory .game-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 120px);
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.level-indicator {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Showing State */
+.number-display {
+  margin-bottom: 24px;
+}
+
+.the-number {
+  font-size: 3.5rem;
+  font-weight: 600;
+  font-family: 'Inter', monospace;
+  letter-spacing: 0.15em;
+  color: var(--text-primary);
+}
+
+@media (max-width: 600px) {
+  .the-number {
+    font-size: 2.5rem;
+  }
+}
+
+.progress-bar-container {
+  width: 280px;
+  max-width: 100%;
+  height: 4px;
+  background: var(--bg-elevated);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--accent-primary);
+  transition: width 0.05s linear;
+}
+
+.hint {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Input State */
+.prompt {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 24px;
+  color: var(--text-primary);
+}
+
+.input-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.number-input {
+  width: 100%;
+  font-size: 1.75rem;
+  text-align: center;
+  font-family: 'Inter', monospace;
+  letter-spacing: 0.1em;
+  padding: 16px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  color: var(--text-primary);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.number-input:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-muted);
+  outline: none;
+}
+
+.number-input::placeholder {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  letter-spacing: normal;
+}
+
+.input-form .btn {
+  width: 100%;
+}
+
+/* Result Indicator */
+.result-indicator {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.result-indicator.success {
+  background: var(--success-muted);
+  color: var(--success);
+}
+
+.result-indicator.error {
+  background: var(--error-muted);
+  color: var(--error);
+}
+
+/* Correct State */
+.game-screen.correct h2 {
+  color: var(--success);
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.number-comparison {
+  margin-bottom: 20px;
+}
+
+.correct-number {
+  font-size: 2rem;
+  font-family: 'Inter', monospace;
+  color: var(--success);
+  letter-spacing: 0.1em;
+}
+
+.level-info {
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+}
+
+/* Wrong State */
+.game-screen.wrong h2 {
+  color: var(--error);
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.comparison-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.comparison-row .label {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.wrong-number {
+  font-size: 1.5rem;
+  font-family: 'Inter', monospace;
+  color: var(--error);
+  letter-spacing: 0.1em;
+  text-decoration: line-through;
+}
+
+.final-score {
+  font-size: 1rem;
+  margin-bottom: 24px;
+  color: var(--text-secondary);
+}
+
+.final-score strong {
+  color: var(--accent-primary);
+  font-size: 1.25rem;
+}
+
+/* Finished Screen */
+.number-memory .finished-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 120px);
+  gap: 16px;
+}
+
+/* Already Played */
+.number-memory .already-played {
+  max-width: 380px;
+  margin: 100px auto;
+  text-align: center;
+}
+
+.number-memory .already-played h2 {
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+}
+
+.number-memory .already-played p {
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.number-memory .already-played .btn {
+  margin-top: 20px;
+}

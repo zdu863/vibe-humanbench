@@ -1,0 +1,245 @@
+.leaderboard-page {
+  padding: 40px 20px;
+  max-width: 700px;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.page-header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.page-header p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* Controls */
+.leaderboard-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.test-tabs {
+  display: flex;
+  gap: 6px;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.tab:hover {
+  border-color: var(--text-muted);
+}
+
+.tab.active {
+  border-color: transparent;
+}
+
+.tab-icon {
+  color: var(--text-secondary);
+}
+
+.view-toggle {
+  display: flex;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 3px;
+}
+
+.toggle-btn {
+  padding: 6px 14px;
+  background: transparent;
+  border-radius: 6px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.toggle-btn.active {
+  background: var(--accent-muted);
+  color: var(--accent-primary);
+}
+
+/* Content */
+.leaderboard-content {
+  min-height: 350px;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  gap: 12px;
+  color: var(--text-muted);
+}
+
+/* Table */
+.leaderboard-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 70px 1fr 100px;
+  padding: 10px 14px;
+  background: var(--bg-elevated);
+  border-radius: var(--border-radius);
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.table-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 70px 1fr 100px;
+  padding: 12px 14px;
+  background: var(--bg-elevated);
+  border-radius: var(--border-radius);
+  align-items: center;
+  transition: var(--transition);
+}
+
+.table-row:hover {
+  background: var(--bg-secondary);
+}
+
+.table-row.current-user {
+  background: var(--accent-muted);
+}
+
+.col-rank {
+  text-align: center;
+}
+
+.rank-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  border-radius: 50%;
+}
+
+.rank-badge.rank-1 {
+  background: rgba(255, 215, 0, 0.15);
+  color: #ffd700;
+}
+
+.rank-badge.rank-2 {
+  background: rgba(192, 192, 192, 0.15);
+  color: #c0c0c0;
+}
+
+.rank-badge.rank-3 {
+  background: rgba(205, 127, 50, 0.15);
+  color: #cd7f32;
+}
+
+.col-player {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.you-badge {
+  background: var(--accent-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: white;
+}
+
+.col-score {
+  text-align: right;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--accent-primary);
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  text-align: center;
+}
+
+.empty-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+  color: var(--text-muted);
+}
+
+.empty-state h3 {
+  margin-bottom: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.empty-state p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .leaderboard-controls {
+    flex-direction: column;
+  }
+  
+  .test-tabs {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .tab-name {
+    display: none;
+  }
+  
+  .table-header,
+  .table-row {
+    grid-template-columns: 50px 1fr 70px;
+  }
+}

@@ -1,0 +1,234 @@
+.sequence-memory {
+  min-height: calc(100vh - 80px);
+}
+
+.sequence-memory .instructions-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 120px);
+  padding: 20px;
+}
+
+.sequence-memory .instructions-content {
+  max-width: 440px;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+.sequence-memory .test-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 32px;
+  background: var(--bg-elevated);
+}
+
+.sequence-memory .test-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sequence-memory .test-header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.sequence-memory .daily-badge {
+  background: var(--accent-muted);
+  color: var(--accent-primary);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.sequence-memory .instructions-body {
+  padding: 24px;
+}
+
+.sequence-memory .instructions-body h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: var(--text-secondary);
+}
+
+.sequence-memory .instructions-body ul {
+  margin-bottom: 24px;
+  padding-left: 20px;
+}
+
+.sequence-memory .instructions-body li {
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.sequence-memory .instructions-body .btn {
+  width: 100%;
+}
+
+/* Game Screen */
+.sequence-memory .game-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 120px);
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* Game Status */
+.game-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.level-display {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.status-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Tile Grid */
+.tile-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  width: 280px;
+  height: 280px;
+}
+
+.tile {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.tile:hover:not(:disabled) {
+  background: var(--bg-card);
+  border-color: var(--text-muted);
+}
+
+.tile:disabled {
+  cursor: default;
+}
+
+.tile.active {
+  background: #14b8a6;
+  border-color: #14b8a6;
+  box-shadow: 0 0 20px rgba(20, 184, 166, 0.4);
+}
+
+/* Wrong Screen */
+.wrong-screen {
+  gap: 20px;
+}
+
+.wrong-screen .result-indicator {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--error-muted);
+  color: var(--error);
+}
+
+.wrong-screen h2 {
+  font-size: 1.5rem;
+  color: var(--error);
+  margin-bottom: 8px;
+}
+
+.wrong-screen .tile-grid {
+  pointer-events: none;
+  margin-bottom: 16px;
+}
+
+.tile.correct-tile {
+  background: var(--success);
+  border-color: var(--success);
+  animation: pulse-correct 0.5s ease infinite;
+}
+
+@keyframes pulse-correct {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.tile.wrong-tile {
+  background: var(--error);
+  border-color: var(--error);
+}
+
+.final-score {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.final-score strong {
+  color: #14b8a6;
+  font-size: 1.25rem;
+}
+
+/* Finished Screen */
+.sequence-memory .finished-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 120px);
+  gap: 16px;
+}
+
+/* Already Played */
+.sequence-memory .already-played {
+  max-width: 380px;
+  margin: 100px auto;
+  text-align: center;
+}
+
+.sequence-memory .already-played h2 {
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+}
+
+.sequence-memory .already-played p {
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.sequence-memory .already-played .btn {
+  margin-top: 20px;
+}
+
+@media (max-width: 400px) {
+  .tile-grid {
+    width: 240px;
+    height: 240px;
+    gap: 6px;
+  }
+}

@@ -1,0 +1,214 @@
+.aim-trainer {
+  min-height: calc(100vh - 80px);
+}
+
+.aim-trainer .instructions-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 120px);
+  padding: 20px;
+}
+
+.aim-trainer .instructions-content {
+  max-width: 440px;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+.aim-trainer .test-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 32px;
+  background: var(--bg-elevated);
+}
+
+.aim-trainer .test-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aim-trainer .test-header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.aim-trainer .daily-badge {
+  background: var(--accent-muted);
+  color: var(--accent-primary);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.aim-trainer .instructions-body {
+  padding: 24px;
+}
+
+.aim-trainer .instructions-body h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: var(--text-secondary);
+}
+
+.aim-trainer .instructions-body ul {
+  margin-bottom: 24px;
+  padding-left: 20px;
+}
+
+.aim-trainer .instructions-body li {
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.aim-trainer .instructions-body .btn {
+  width: 100%;
+}
+
+/* Countdown */
+.countdown-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 120px);
+}
+
+.countdown-number {
+  font-size: 6rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+.countdown-screen p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+/* Game Wrapper */
+.game-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 120px);
+  padding: 20px;
+}
+
+.game-header {
+  margin-bottom: 16px;
+}
+
+.progress-info {
+  display: flex;
+  gap: 24px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Game Area */
+.game-area {
+  position: relative;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+}
+
+.target {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s;
+  animation: targetAppear 0.15s ease-out;
+}
+
+@keyframes targetAppear {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.target:hover {
+  transform: scale(1.05);
+}
+
+.target-inner {
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.target-center {
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  border-radius: 50%;
+  background: var(--accent-primary);
+}
+
+/* Finished Screen */
+.aim-trainer .finished-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 120px);
+  gap: 16px;
+}
+
+/* Already Played */
+.aim-trainer .already-played {
+  max-width: 380px;
+  margin: 100px auto;
+  text-align: center;
+}
+
+.aim-trainer .already-played h2 {
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+}
+
+.aim-trainer .already-played p {
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.aim-trainer .already-played .btn {
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .game-area {
+    width: 100% !important;
+    height: 300px !important;
+  }
+}
