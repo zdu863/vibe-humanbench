@@ -12,7 +12,9 @@ function Profile() {
     aim: null,
     'number-memory': null,
     'verbal-memory': null,
-    'sequence-memory': null
+    'sequence-memory': null,
+    'typing': null,
+    'chimp': null
   });
   const [recentScores, setRecentScores] = useState<Score[]>([]);
   const [loading, setLoading] = useState(true);
@@ -30,7 +32,9 @@ function Profile() {
           aim: null, 
           'number-memory': null,
           'verbal-memory': null,
-          'sequence-memory': null
+          'sequence-memory': null,
+          'typing': null,
+          'chimp': null
         };
         statsData.forEach(s => {
           statsMap[s.test_type as TestType] = s;
@@ -181,7 +185,7 @@ function Profile() {
                       </div>
                       <span className="activity-score">
                         {Math.round(score.score)}{test?.unit}
-                        {score.is_daily && (
+                        {!!score.is_daily && (
                           <span className="daily-indicator" title="Daily Challenge">D</span>
                         )}
                       </span>

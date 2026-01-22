@@ -11,6 +11,8 @@ interface DailyStatus {
   'number-memory': boolean;
   'verbal-memory': boolean;
   'sequence-memory': boolean;
+  'typing': boolean;
+  'chimp': boolean;
 }
 
 function Home() {
@@ -20,7 +22,9 @@ function Home() {
     aim: null,
     'number-memory': null,
     'verbal-memory': null,
-    'sequence-memory': null
+    'sequence-memory': null,
+    'typing': null,
+    'chimp': null
   });
   const [dailySeed, setDailySeed] = useState<string>('');
   const [dailyPlayed, setDailyPlayed] = useState<DailyStatus>({ 
@@ -28,7 +32,9 @@ function Home() {
     aim: false, 
     'number-memory': false,
     'verbal-memory': false,
-    'sequence-memory': false
+    'sequence-memory': false,
+    'typing': false,
+    'chimp': false
   });
 
   useEffect(() => {
@@ -41,7 +47,9 @@ function Home() {
             aim: null, 
             'number-memory': null,
             'verbal-memory': null,
-            'sequence-memory': null
+            'sequence-memory': null,
+            'typing': null,
+            'chimp': null
           };
           data.forEach(s => {
             statsMap[s.test_type as TestType] = s;
@@ -60,14 +68,18 @@ function Home() {
           checkDailyPlayed(user.id, 'aim'),
           checkDailyPlayed(user.id, 'number-memory'),
           checkDailyPlayed(user.id, 'verbal-memory'),
-          checkDailyPlayed(user.id, 'sequence-memory')
-        ]).then(([reactionStatus, aimStatus, numberMemoryStatus, verbalMemoryStatus, sequenceMemoryStatus]) => {
+          checkDailyPlayed(user.id, 'sequence-memory'),
+          checkDailyPlayed(user.id, 'typing'),
+          checkDailyPlayed(user.id, 'chimp')
+        ]).then(([reactionStatus, aimStatus, numberMemoryStatus, verbalMemoryStatus, sequenceMemoryStatus, typingStatus, chimpStatus]) => {
           setDailyPlayed({
             reaction: reactionStatus.played,
             aim: aimStatus.played,
             'number-memory': numberMemoryStatus.played,
             'verbal-memory': verbalMemoryStatus.played,
-            'sequence-memory': sequenceMemoryStatus.played
+            'sequence-memory': sequenceMemoryStatus.played,
+            'typing': typingStatus.played,
+            'chimp': chimpStatus.played
           });
         });
       }).catch(console.error);

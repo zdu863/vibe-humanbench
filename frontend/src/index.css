@@ -414,6 +414,48 @@ input::placeholder {
     linear-gradient(90deg, currentColor 3px, transparent 3px) 0 0 / 10px 10px;
 }
 
+/* Keyboard icon */
+.icon-keyboard::before {
+  content: '';
+  width: 20px;
+  height: 14px;
+  border: 2px solid currentColor;
+  border-radius: 3px;
+  position: relative;
+}
+
+.icon-keyboard::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  background: currentColor;
+  bottom: 4px;
+}
+
+.icon-lg.icon-keyboard::before {
+  width: 36px;
+  height: 24px;
+  border-width: 3px;
+  border-radius: 5px;
+}
+
+.icon-lg.icon-keyboard::after {
+  width: 18px;
+  height: 3px;
+  bottom: 6px;
+}
+
+/* Chimp icon (monkey face) */
+.icon-chimp::before {
+  content: '🐵';
+  font-size: 16px;
+}
+
+.icon-lg.icon-chimp::before {
+  font-size: 32px;
+}
+
 @media (max-width: 768px) {
   .grid-2 {
     grid-template-columns: 1fr;

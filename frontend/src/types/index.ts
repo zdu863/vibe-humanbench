@@ -29,7 +29,7 @@ export interface LeaderboardEntry {
   created_at: string;
 }
 
-export type TestType = 'reaction' | 'aim' | 'number-memory' | 'verbal-memory' | 'sequence-memory';
+export type TestType = 'reaction' | 'aim' | 'number-memory' | 'verbal-memory' | 'sequence-memory' | 'typing' | 'chimp';
 
 export interface TestInfo {
   id: TestType;
@@ -118,6 +118,38 @@ export const TESTS: Record<TestType, TestInfo> = {
       'Each level adds one more tile to the sequence',
       'The game ends when you click the wrong tile',
       'Your score is the highest level reached'
+    ],
+    scoreBetterWhen: 'higher'
+  },
+  'typing': {
+    id: 'typing',
+    name: 'Typing Test',
+    description: 'Test your typing speed. Type the displayed paragraph as quickly and accurately as possible.',
+    iconClass: 'icon-keyboard',
+    color: '#ec4899',
+    unit: ' WPM',
+    instructions: [
+      'A paragraph of text will be displayed on screen',
+      'Type the text exactly as shown, including punctuation',
+      'Your typing speed will be measured in words per minute (WPM)',
+      'Accuracy is also tracked - mistakes will be highlighted',
+      'The timer starts when you begin typing'
+    ],
+    scoreBetterWhen: 'higher'
+  },
+  'chimp': {
+    id: 'chimp',
+    name: 'Chimp Test',
+    description: 'Are you smarter than a chimpanzee? Click the numbers in order after they disappear.',
+    iconClass: 'icon-chimp',
+    color: '#f97316',
+    unit: ' numbers',
+    instructions: [
+      'Numbers will briefly appear on the screen',
+      'Memorize their positions before they disappear',
+      'Click the squares in ascending order (1, 2, 3...)',
+      'Each level adds one more number to remember',
+      'You have 3 strikes - the test ends after 3 mistakes'
     ],
     scoreBetterWhen: 'higher'
   }

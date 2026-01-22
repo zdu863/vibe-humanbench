@@ -7,6 +7,8 @@ import AimTrainer from './pages/AimTrainer';
 import NumberMemory from './pages/NumberMemory';
 import VerbalMemory from './pages/VerbalMemory';
 import SequenceMemory from './pages/SequenceMemory';
+import TypingTest from './pages/TypingTest';
+import ChimpTest from './pages/ChimpTest';
 import Results from './pages/Results';
 import Leaderboard from './pages/Leaderboard';
 import Profile from './pages/Profile';
@@ -41,6 +43,8 @@ function App() {
           <Route path="/test/number-memory" element={<NumberMemory />} />
           <Route path="/test/verbal-memory" element={<VerbalMemory />} />
           <Route path="/test/sequence-memory" element={<SequenceMemory />} />
+          <Route path="/test/typing" element={<TypingTest />} />
+          <Route path="/test/chimp" element={<ChimpTest />} />
           <Route path="/results/:testType" element={<Results />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path="/profile" element={<Profile />} />

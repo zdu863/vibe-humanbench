@@ -72,7 +72,7 @@ app.post('/api/scores', (req, res) => {
     return res.status(400).json({ error: 'Missing required fields' });
   }
   
-  const validTests = ['reaction', 'aim', 'number-memory', 'verbal-memory', 'sequence-memory'];
+  const validTests = ['reaction', 'aim', 'number-memory', 'verbal-memory', 'sequence-memory', 'typing', 'chimp'];
   if (!validTests.includes(testType)) {
     return res.status(400).json({ error: 'Invalid test type' });
   }
@@ -116,7 +116,7 @@ app.get('/api/leaderboard/:testType', (req, res) => {
   const { testType } = req.params;
   const { limit, daily } = req.query;
   
-  const validTests = ['reaction', 'aim', 'number-memory', 'verbal-memory', 'sequence-memory'];
+  const validTests = ['reaction', 'aim', 'number-memory', 'verbal-memory', 'sequence-memory', 'typing', 'chimp'];
   if (!validTests.includes(testType)) {
     return res.status(400).json({ error: 'Invalid test type' });
   }

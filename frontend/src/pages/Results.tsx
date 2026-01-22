@@ -13,6 +13,8 @@ function Results() {
   const score = parseInt(searchParams.get('score') || '0');
   const times = searchParams.get('times')?.split(',').map(Number) || [];
   const isDaily = searchParams.get('daily') === 'true';
+  const accuracy = parseInt(searchParams.get('accuracy') || '0');
+  const typingTime = parseInt(searchParams.get('time') || '0');
   
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
   const [stats, setStats] = useState<UserStats | null>(null);
@@ -74,6 +76,18 @@ function Results() {
       if (score >= 7) return { rating: 'Good', color: '#6366f1' };
       if (score >= 5) return { rating: 'Average', color: '#fbbf24' };
       return { rating: 'Below Average', color: '#f87171' };
+    } else if (testType === 'typing') {
+      if (score >= 80) return { rating: 'Exceptional', color: '#ec4899' };
+      if (score >= 60) return { rating: 'Excellent', color: '#4ade80' };
+      if (score >= 45) return { rating: 'Good', color: '#6366f1' };
+      if (score >= 30) return { rating: 'Average', color: '#fbbf24' };
+      return { rating: 'Below Average', color: '#f87171' };
+    } else if (testType === 'chimp') {
+      if (score >= 12) return { rating: 'Exceptional', color: '#f97316' };
+      if (score >= 9) return { rating: 'Excellent', color: '#4ade80' };
+      if (score >= 7) return { rating: 'Good', color: '#6366f1' };
+      if (score >= 5) return { rating: 'Average', color: '#fbbf24' };
+      return { rating: 'Below Average', color: '#f87171' };
     }
     return { rating: 'Completed', color: '#6366f1' };
   };
@@ -119,6 +133,22 @@ function Results() {
                     <span className="time-value">{time}ms</span>
                   </div>
                 ))}
+              </div>
+            </div>
+          )}
+
+          {testType === 'typing' && (accuracy > 0 || typingTime > 0) && (
+            <div className="times-breakdown">
+              <h3>Typing Stats</h3>
+              <div className="times-list">
+                <div className="time-item">
+                  <span className="time-label">Accuracy</span>
+                  <span className="time-value">{accuracy}%</span>
+                </div>
+                <div className="time-item">
+                  <span className="time-label">Time</span>
+                  <span className="time-value">{typingTime}s</span>
+                </div>
               </div>
             </div>
           )}
