@@ -20,6 +20,24 @@ A web application for testing and tracking your cognitive abilities, inspired by
    - Average time per target is calculated
    - Scores measured in milliseconds (lower is better)
 
+3. **🔢 Number Memory**
+   - Memorize an increasingly long number
+   - Each level adds one more digit
+   - Game ends on a wrong entry
+   - Scores measured in levels (higher is better)
+
+4. **🧠 Verbal Memory**
+   - Track whether words are new or seen
+   - Three mistakes ends the game
+   - Score is the number of correct answers
+   - Scores measured in words (higher is better)
+
+5. **🧩 Sequence Memory**
+   - Repeat a growing sequence of tiles
+   - Each level adds one more step
+   - Game ends on a wrong tile
+   - Scores measured in levels (higher is better)
+
 ### 📊 Statistics & Tracking
 
 - **Personal Stats**: Best score, average score, games played per test
