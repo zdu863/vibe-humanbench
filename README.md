@@ -2,7 +2,7 @@
 
 A web application for testing and tracking your cognitive abilities, inspired by [Human Benchmark](https://humanbenchmark.com). Built with React, TypeScript, and Node.js/Express.
 
-![Human Benchmark](https://img.shields.io/badge/React-18.2-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue) ![Node.js](https://img.shields.io/badge/Node.js-20+-green)
+![Human Benchmark](https://img.shields.io/badge/React-18.2-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue) ![Node.js](https://img.shields.io/badge/Node.js-18+-green)
 
 ## Features
 
@@ -37,6 +37,18 @@ A web application for testing and tracking your cognitive abilities, inspired by
    - Each level adds one more step
    - Game ends on a wrong tile
    - Scores measured in levels (higher is better)
+
+6. **⌨️ Typing Test**
+   - Type the displayed paragraph as quickly and accurately as possible
+   - Timer starts on your first keystroke
+   - Reports words per minute (WPM) and accuracy
+   - Scores measured in WPM (higher is better)
+
+7. **🐵 Chimp Test**
+   - Memorize the positions of numbers that briefly appear
+   - Click the numbers in ascending order after they disappear
+   - Three strikes ends the game
+   - Scores measured in highest number reached (higher is better)
 
 ### 📊 Statistics & Tracking
 
@@ -80,7 +92,7 @@ A web application for testing and tracking your cognitive abilities, inspired by
 ## Project Structure
 
 ```
-human-benchmark/
+humanbench/
 ├── frontend/               # React frontend
 │   ├── src/
 │   │   ├── components/     # Reusable components
@@ -110,7 +122,8 @@ human-benchmark/
 
 1. **Clone the repository**
    ```bash
-   cd zed-base
+   git clone <repo-url>
+   cd humanbench
    ```
 
 2. **Install backend dependencies**
@@ -199,13 +212,48 @@ ssh -L 5173:localhost:5173 -L 3000:localhost:3000 user@server
 ### Stats
 - `GET /api/stats/:userId` - Get user statistics
 
-### Leaderboard
+### Leaderboards
 - `GET /api/leaderboard/:testType` - Get leaderboard for a test
-  - Query params: `limit`, `daily`
+  - Query params: `limit`, `daily=true`
 
-### Daily Challenge
-- `GET /api/daily` - Get current daily seed
-- `GET /api/daily/check/:userId/:testType` - Check if user played daily
+### Daily Challenges
+- `GET /api/daily` - Get today's daily seed
+- `GET /api/daily/check/:userId/:testType` - Check if user played today's daily challenge
+
+### Health
+- `GET /api/health` - Service health check
+
+### Example Requests
+
+```bash
+# Create or get a user
+curl -X POST http://localhost:3000/api/users \
+  -H "Content-Type: application/json" \
+  -d '{"username":"alex"}'
+```
+
+```bash
+# Submit a score (reaction test)
+curl -X POST http://localhost:3000/api/scores \
+  -H "Content-Type: application/json" \
+  -d '{"userId":"<user-id>","testType":"reaction","score":245,"isDaily":false}'
+```
+
+```bash
+# Get a user's recent scores (optionally filter by testType)
+curl "http://localhost:3000/api/scores/<user-id>?testType=reaction&limit=10"
+```
+
+```bash
+# Leaderboard for a test (daily=true for daily leaderboard)
+curl "http://localhost:3000/api/leaderboard/reaction?limit=10&daily=true"
+```
+
+```bash
+# Daily info and check if a user already played today
+curl "http://localhost:3000/api/daily"
+curl "http://localhost:3000/api/daily/check/<user-id>/reaction"
+```
 
 ## Adding New Tests
 
@@ -213,13 +261,15 @@ The app is designed to be easily extensible. To add a new test:
 
 1. Add the test definition to `frontend/src/types/index.ts`:
    ```typescript
+   export type TestType = /* ... */ | 'new-test';
+
    export const TESTS: Record<TestType, TestInfo> = {
      // ... existing tests
-     newTest: {
-       id: 'newTest',
+     'new-test': {
+       id: 'new-test',
        name: 'New Test',
        description: 'Description here',
-       icon: '🆕',
+       iconClass: 'icon-new-test',
        color: '#color',
        unit: 'ms',
        instructions: ['Step 1', 'Step 2'],
@@ -233,6 +283,8 @@ The app is designed to be easily extensible. To add a new test:
 3. Add the route in `frontend/src/App.tsx`
 
 4. Add the test type to the backend validation in `server.ts`
+
+5. If the new test should sort with lower scores first, update the `lowerIsBetter` logic in `backend/src/database.ts` (used for best-score and leaderboard ordering).
 
 ## Database Schema
 
